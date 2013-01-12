@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+title="My Iframe Wrapper"
+title_url="http://realworldrobotics.com"
+description="A gadget to embed/include another document/page in your web page."
+width="800"
+height="600"
+author="Chandan Datta"
+author_email="chandan.datta@auckland.ac.nz"
+author_location="Auckland, New Zealand"
+author_affiliation="UoA"
+author_aboutme="Real world robotics engineer"
+author_link="http://realworldrobotics.com"
+>
+</ModulePrefs>
+<UserPref name="url" display_name="Document / page URL" required="true" />
+<UserPref name="scroll" display_name="Display scrollbars" default_value="auto" datatype="enum">
+<EnumValue value="auto" display_value="Automatic" />
+<EnumValue value="yes" display_value="Yes" />
+<EnumValue value="no" display_value="No" />
+</UserPref>
+<Content type="html"><![CDATA[
+<style type="text/css">
+body {background:transparent;}
+</style>
+<div id="container"></div>
+<script type="text/javascript">
+var prefs = new gadgets.Prefs();
+var Furl = prefs.getString("url");
+var Fscroll = prefs.getString("scroll");
+var content = "<iframe width='100%' height='100%' frameborder='0' allowtransparency='true' src='" + Furl + "' scrolling='" + Fscroll + "'><\/iframe>";
+document.getElementById("container").innerHTML = content;
+</script>
+]]></Content>
+</Module>
